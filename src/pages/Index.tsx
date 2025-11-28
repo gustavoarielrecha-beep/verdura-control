@@ -5,6 +5,7 @@ import { VegetableCard } from '@/components/VegetableCard';
 import { AddVegetableDialog } from '@/components/AddVegetableDialog';
 import { SearchAndFilter } from '@/components/SearchAndFilter';
 import { DeleteConfirmDialog } from '@/components/DeleteConfirmDialog';
+import { AIAssistant } from '@/components/AIAssistant';
 import { useVegetables } from '@/hooks/useVegetables';
 import { Vegetable } from '@/types/vegetable';
 import { Package, AlertTriangle, XCircle, DollarSign } from 'lucide-react';
@@ -13,6 +14,7 @@ import { toast } from '@/hooks/use-toast';
 const Index = () => {
   const {
     vegetables,
+    allVegetables,
     searchTerm,
     setSearchTerm,
     categoryFilter,
@@ -195,6 +197,21 @@ const Index = () => {
         onOpenChange={setDeleteDialogOpen}
         onConfirm={handleConfirmDelete}
         vegetableName={vegetableToDelete?.name || ''}
+      />
+
+      {/* AI Assistant */}
+      <AIAssistant
+        inventoryData={{
+          vegetables: allVegetables.map((v) => ({
+            name: v.name,
+            quantity: v.quantity,
+            unit: v.unit,
+            minStock: v.minStock,
+            category: v.category,
+            price: v.price,
+          })),
+          stats,
+        }}
       />
     </div>
   );
