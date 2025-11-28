@@ -147,7 +147,7 @@ export function AIAssistant({ inventoryData }: AIAssistantProps) {
             {/* Footer */}
             <div className="border-t p-3 bg-muted/30">
               <p className="text-xs text-muted-foreground text-center">
-                Powered by Google Gemini • Los análisis son sugerencias basadas en los datos actuales
+                Powered by Gemini 2.5 Pro • Los análisis son sugerencias basadas en los datos actuales
               </p>
             </div>
           </Card>
